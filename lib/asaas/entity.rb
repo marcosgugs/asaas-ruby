@@ -1,5 +1,6 @@
 module Asaas
   module Entity
+    autoload :Base, 'asaas/entity/base'
     autoload :Account, 'asaas/entity/account'
     autoload :BankAccount, 'asaas/entity/bank_account'
     autoload :City, 'asaas/entity/city'

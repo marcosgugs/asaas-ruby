@@ -4,6 +4,8 @@ module Asaas
 
       attr_reader :endpoint
       attr_reader :meta
+      attr_reader :errors
+      attr_reader :success
       attr_reader :token
       attr_accessor :route
 
@@ -28,7 +30,7 @@ module Asaas
       end
 
       def create(attrs)
-        request(:post, {}, attrs)
+        ap request(:post, {}, attrs)
         parse_response
       end
 
@@ -52,12 +54,18 @@ module Asaas
       end
 
       def parse_response
+        ap hash
         hash = JSON.parse(@response.body)
-        if hash.fetch("object", false) === "list"
+        @errors = false
+        @success = true
+        if hash.fetch("errors", false)
+          @errors   = hash.fetch("errors")
+          @success  = false
+        elsif hash.fetch("object", false) === "list"
           Asaas::Entity::Meta.new(hash)
         else
           entity = convert_data_to_entity(hash.fetch("object", false))
-          entity.new(hash)
+          entity.new(hash) if entity
         end
       end
 
@@ -69,7 +77,7 @@ module Asaas
         @response = Typhoeus::Request.new(
             parse_url(params.fetch(:id, false)),
             method: method,
-            body: body,
+            body: body.attributes,
             params: params,
             headers: { 'access_token': @token || Asaas::Configuration.token }
         ).run

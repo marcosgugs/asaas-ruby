@@ -1,7 +1,6 @@
 module Asaas
   module Entity
-    class Customer
-      include Virtus.model
+    class Customer < Asaas::Entity::Base
 
       attribute :id, Integer
       attribute :name, String

@@ -3,6 +3,7 @@ module Asaas
     class Data < Virtus::Attribute
       def coerce(value)
         value.map do |hash|
+          ap hash
           if hash.has_key? "object"
             entity = convert_data_to_entity(hash["object"])
             entity.new(hash)
