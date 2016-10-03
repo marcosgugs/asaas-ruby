@@ -23,8 +23,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.2"
 
   spec.add_dependency "activesupport", "~> 4.2"
-  spec.add_dependency "virtus", "~> 1.0.5"
-  spec.add_dependency "typhoeus", "~> 1.0.2"
-  spec.add_dependency "rest-client", "~> 1.8.0"
-  spec.add_dependency "awesome_print", "~> 1.6.1"
+  spec.add_dependency "virtus", '~> 1.0', "~> 1.0.5"
+  spec.add_dependency "typhoeus", '~> 1.0', "~> 1.0.2"
+  spec.add_dependency "rest-client", '~> 1.8', "~> 1.8.0"
+  spec.add_dependency "awesome_print", '~> 1.6', "~> 1.6.1"
 end
