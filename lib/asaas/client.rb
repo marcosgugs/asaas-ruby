@@ -3,8 +3,8 @@ module Asaas
 
     attr_reader :token
 
-    def initialize(token)
-      @token = token
+    def initialize(token = nil)
+      @token = token || Asaas::Configuration.token
     end
 
     def accounts
