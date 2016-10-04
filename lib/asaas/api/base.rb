@@ -30,7 +30,7 @@ module Asaas
       end
 
       def create(attrs)
-        ap request(:post, {}, attrs)
+        request(:post, {}, attrs)
         parse_response
       end
 
@@ -54,7 +54,6 @@ module Asaas
       end
 
       def parse_response
-        ap @response
         res = case @response.response_code
           when 200
             response_success
