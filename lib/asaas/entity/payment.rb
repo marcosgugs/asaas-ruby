@@ -14,6 +14,7 @@ module Asaas
       attribute :grossValue, Float
       attribute :dueDate, String
       attribute :status, String
+      attribute :postalService, Axiom::Types::Boolean
       attribute :nossoNumero, String
       attribute :description, String
       attribute :invoiceNumber, String

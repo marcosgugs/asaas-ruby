@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Asass.com Ruby API Wrapper}
   spec.description   = %q{Asass.com Ruby API Wrapper}
-  spec.homepage      = "http://github.com/marcosgugs/ruby-asaas"
+  spec.homepage      = "http://github.com/marcosgugs/asaas-ruby"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
