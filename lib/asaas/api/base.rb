@@ -54,17 +54,21 @@ module Asaas
       end
 
       def parse_response
-        res = case @response.response_code
+        res =  @response.response_code
+        puts res
+        case @response.response_code
           when 200
-            response_success
+            res = response_success
           when 400
-            response_bad_request
+            res = response_bad_request
           when 401
-            response_unauthorized
+            res = response_unauthorized
           when 404
-            response_not_found
+            res = response_not_found
           when 500
-            response_internal_server_error
+            res = response_internal_server_error
+          else
+            res = response_not_found
         end
         res
       end
@@ -86,12 +90,14 @@ module Asaas
 
       def response_success
         hash = JSON.parse(@response.body)
+
         if hash.fetch("object", false) === "list"
           entity = Asaas::Entity::Meta.new(hash)
         else
           entity = convert_data_to_entity(hash.fetch("object", false))
-          entity.new(hash) if entity
+          entity = entity.new(hash) if entity
         end
+
         entity
       end
 
