@@ -24,8 +24,8 @@ module Asaas
         parse_response
       end
 
-      def list
-        request(:get)
+      def list(params = {})
+        request(:get, params)
         parse_response
       end
 
