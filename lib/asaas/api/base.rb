@@ -40,7 +40,7 @@ module Asaas
       end
 
       def delete(id)
-        request(:put, {id: id})
+        request(:delete, {id: id})
         parse_response
       end
 
