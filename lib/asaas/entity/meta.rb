@@ -16,6 +16,8 @@ module Asaas
       protected
       def convert_data_to_entity(type)
         "Asaas::Entity::#{type.capitalize}".constantize
+      rescue
+        Asaas::Entity::Base
       end
     end
 

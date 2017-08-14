@@ -75,6 +75,8 @@ module Asaas
 
       def convert_data_to_entity(type)
         "Asaas::Entity::#{type.capitalize}".constantize
+      rescue
+        Asaas::Entity::Base
       end
 
       def request(method, params = {}, body = nil)
@@ -89,6 +91,7 @@ module Asaas
       end
 
       def response_success
+        entity = nil
         hash = JSON.parse(@response.body)
 
         if hash.fetch("object", false) === "list"
