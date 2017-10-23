@@ -35,7 +35,7 @@ module Asaas
       end
 
       def update(attrs)
-        request(:put, {id: attrs.id}, attrs)
+        request(:post, {id: attrs.id}, attrs)
         parse_response
       end
 
