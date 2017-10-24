@@ -2,7 +2,7 @@ module Asaas
   module Entity
     class Customer < Asaas::Entity::Base
 
-      attribute :id, Integer
+      attribute :id, String
       attribute :name, String
       attribute :email, String
       attribute :company, String

@@ -3,7 +3,7 @@ module Asaas
     class Subscription
       include Virtus.model
 
-      attribute :id, Integer
+      attribute :id, String
       attribute :customer
       attribute :value, Float
       attribute :grossValue, Float

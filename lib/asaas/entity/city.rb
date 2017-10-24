@@ -3,8 +3,8 @@ module Asaas
     class City
       include Virtus.model
 
-      attribute :id, Integer
-      attribute :ibgeCode, Integer
+      attribute :id, String
+      attribute :ibgeCode, String
       attribute :name, String
       attribute :districtCode, Integer
       attribute :district, String

@@ -3,7 +3,7 @@ module Asaas
     class Payment
       include Virtus.model
 
-      attribute :id, Integer
+      attribute :id, String
       attribute :customer, String
       attribute :subscription, String
       attribute :billingType, String

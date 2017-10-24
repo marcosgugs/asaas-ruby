@@ -3,7 +3,7 @@ module Asaas
     class Account
       include Virtus.model
 
-      attribute :id, Integer
+      attribute :id, String
       attribute :name, String
       attribute :email, String
       attribute :phone, String

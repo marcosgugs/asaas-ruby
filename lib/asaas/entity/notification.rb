@@ -3,7 +3,7 @@ module Asaas
     class Notification
       include Virtus.model
 
-      attribute :id, Integer
+      attribute :id, String
       attribute :customer, String
       attribute :event, String
       attribute :scheduleOffset, Integer

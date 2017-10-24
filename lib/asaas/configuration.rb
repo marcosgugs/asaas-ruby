@@ -15,6 +15,10 @@ module Asaas
 
     mattr_accessor :token
 
+    mattr_accessor :debug do
+      false
+    end
+
     class << self
 
       def setup(&block)
