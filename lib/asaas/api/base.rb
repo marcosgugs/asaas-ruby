@@ -9,10 +9,12 @@ module Asaas
       attr_reader :token
       attr_accessor :route
 
-      def initialize(client_token, route = nil)
+      def initialize(client_token, api_version, route = nil)
         @token    = client_token
         @route    = route
-        @endpoint = Asaas::Configuration.get_endpoint
+        @api_version = api_version || Asaas::Configuration.api_version
+        @endpoint = Asaas::Configuration.get_endpoint(api_version)
+        puts @endpoint
       end
 
       def extract_meta(meta)
@@ -74,13 +76,17 @@ module Asaas
       end
 
       def convert_data_to_entity(type)
-        "Asaas::Entity::#{type.capitalize}".constantize
+        if @api_version == 2
+          "Asaas::Entity::#{type.capitalize}".constantize
+        else
+          "Asaas::#{type.capitalize}".constantize
+        end
       rescue
         Asaas::Entity::Base
       end
 
       def request(method, params = {}, body = nil)
-        body = body && body.try(:attributes)
+        body = body && body.respond_to?(:attributes) && body.attributes
         @response = Typhoeus::Request.new(
             parse_url(params.fetch(:id, false)),
             method: method,
@@ -93,7 +99,6 @@ module Asaas
       def response_success
         entity = nil
         hash = JSON.parse(@response.body)
-
         if hash.fetch("object", false) === "list"
           entity = Asaas::Entity::Meta.new(hash)
         else

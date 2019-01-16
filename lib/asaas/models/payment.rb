@@ -1,7 +1,8 @@
 module Asaas
-  class Payment < Dry::Struct
+  class Payment < Model
     BillingTypes = Types::Strict::String.enum('BOLETO', 'CREDIT_CARD', 'UNDEFINED')
 
+    attribute :id, Types::Coercible::String.optional.default(nil)
     attribute :customer, Types::Coercible::String
     attribute :billingType, BillingTypes.optional.default(nil)
     attribute :value, Types::Coercible::Decimal.optional.default(nil)

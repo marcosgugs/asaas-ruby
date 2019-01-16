@@ -3,32 +3,33 @@ module Asaas
 
     attr_reader :token
 
-    def initialize(token = nil)
+    def initialize(token = nil, api_version = nil)
       @token = token || Asaas::Configuration.token
+      @api_version = api_version || Asaas::Configuration.api_version
     end
 
     def accounts
-      @accounts ||= Asaas::Api::Account.new(@token)
+      @accounts ||= Asaas::Api::Account.new(@token, @api_version)
     end
 
     def cities
-      @cities ||= Asaas::Api::City.new(@token)
+      @cities ||= Asaas::Api::City.new(@token, @api_version)
     end
 
     def customers
-      @customers ||= Asaas::Api::Customer.new(@token)
+      @customers ||= Asaas::Api::Customer.new(@token, @api_version)
     end
 
     def notifications
-      @notifications ||= Asaas::Api::Notification.new(@token)
+      @notifications ||= Asaas::Api::Notification.new(@token, @api_version)
     end
 
     def payments
-      @payments ||= Asaas::Api::Payment.new(@token)
+      @payments ||= Asaas::Api::Payment.new(@token, @api_version)
     end
 
     def subscriptions
-      @subscriptions ||= Asaas::Api::Subscription.new(@token)
+      @subscriptions ||= Asaas::Api::Subscription.new(@token, @api_version)
     end
 
   end

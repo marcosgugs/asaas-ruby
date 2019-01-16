@@ -17,11 +17,13 @@ module Asaas
   autoload :Api, 'asaas/api'
   autoload :Client, 'asaas/client'
 
+  autoload :Model, 'asaas/models/model'
   autoload :Customer, 'asaas/models/customer'
   autoload :Payment, 'asaas/models/payment'
   autoload :Discount, 'asaas/models/discount'
   autoload :Interest, 'asaas/models/interest'
   autoload :Fine, 'asaas/models/fine'
+  autoload :Webhook, 'asaas/models/webhook'
 
   class << self
 

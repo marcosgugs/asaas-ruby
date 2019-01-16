@@ -1,16 +1,30 @@
 module Asaas
   module Configuration
 
-    mattr_accessor :staging_endpoint do
-      'http://homolog.asaas.com/api/v2'
-    end
+    ENDPOINT_PRODUCTION = {
+      v2: 'https://www.asaas.com/api/v2',
+      v3: 'https://www.asaas.com/api/v3',
+    }
 
-    mattr_accessor :production_endpoint do
-      'https://www.asaas.com/api/v2'
-    end
+    ENDPOINT_HOMOLOG = {
+      v2: 'https://homolog.asaas.com/api/v2',
+      v3: 'https://homolog.asaas.com/api/v3',
+    }
 
     mattr_accessor :production do
       false
+    end
+
+    mattr_accessor :webhook_url do
+      nil
+    end
+
+    mattr_accessor :webhook_email do
+      nil
+    end
+
+    mattr_accessor :api_version do
+      3
     end
 
     mattr_accessor :token
@@ -26,11 +40,12 @@ module Asaas
         self
       end
 
-      def get_endpoint
+      def get_endpoint(api_version = nil)
+        api_version ||= Asaas::Configuration.api_version
         if production
-          production_endpoint
+          ENDPOINT_PRODUCTION[:"v#{api_version}"]
         else
-          staging_endpoint
+          ENDPOINT_HOMOLOG[:"v#{api_version}"]
         end
       end
 
@@ -38,7 +53,7 @@ module Asaas
         if production
           :production
         else
-          :staging
+          :homolog
         end
       end
 

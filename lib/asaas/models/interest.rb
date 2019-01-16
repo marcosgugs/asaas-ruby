@@ -1,5 +1,5 @@
 module Asaas
-  class Interest < Dry::Struct
+  class Interest < Model
     attribute :value, Types::Coercible::Decimal
   end
 end

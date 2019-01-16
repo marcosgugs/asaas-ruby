@@ -1,5 +1,8 @@
 module Asaas
-  class Customer < Dry::Struct
+  class Customer < Model
+    transform_keys(&:to_sym)
+    
+    attribute :id, Types::Coercible::String.optional.default(nil)
     attribute :name, Types::Coercible::String
     attribute :cpfCnpj, Types::Coercible::String
     attribute :email, Types::Coercible::String.optional.default(nil)

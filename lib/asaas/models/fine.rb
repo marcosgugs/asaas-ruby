@@ -1,5 +1,5 @@
 module Asaas
-  class Fine < Dry::Struct
+  class Fine < Model
     attribute :value, Types::Coercible::Decimal
   end
 end
