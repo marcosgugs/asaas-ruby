@@ -1,5 +1,8 @@
 module Asaas
   class Interest < Model
-    attribute :value, Types::Coercible::Decimal
+    InterestTypes = Types::Strict::String.enum('FIXED', 'PERCENTAGE')
+
+    attribute :value, Types::Coercible::Float
+    attribute :type, InterestTypes.optional.default(nil)
   end
 end
