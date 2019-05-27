@@ -7,8 +7,8 @@ module Asaas
     }
 
     ENDPOINT_HOMOLOG = {
-      v2: 'https://homolog.asaas.com/api/v2',
-      v3: 'https://homolog.asaas.com/api/v3',
+      v2: 'https://sandbox.asaas.com/api/v2',
+      v3: 'https://sandbox.asaas.com/api/v3',
     }
 
     mattr_accessor :production do
