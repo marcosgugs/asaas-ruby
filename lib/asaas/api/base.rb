@@ -90,7 +90,7 @@ module Asaas
         @response = Typhoeus::Request.new(
             parse_url(params.fetch(:id, false)),
             method: method,
-            body: body.delete_if { |k, v| v.nil? || v.to_s.empty? },
+            body: body && body.delete_if { |k, v| v.nil? || v.to_s.empty? },
             params: params,
             headers: { 'access_token': @token || Asaas::Configuration.token }
         ).run
