@@ -24,6 +24,7 @@ module Asaas
   autoload :Interest, 'asaas/models/interest'
   autoload :Fine, 'asaas/models/fine'
   autoload :Webhook, 'asaas/models/webhook'
+  autoload :Account, 'asaas/models/account'
 
   class << self
 
