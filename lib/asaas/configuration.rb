@@ -15,10 +15,6 @@ module Asaas
       false
     end
 
-    mattr_accessor :debug do
-      false
-    end
-
     mattr_accessor :webhook_url do
       nil
     end
