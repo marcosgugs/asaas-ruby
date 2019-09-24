@@ -1,6 +1,7 @@
 module Asaas
     class Account < Model
       attribute :id, Types::Coercible::String.optional.default(nil)
+      attribute :walletId, Types::Coercible::String.optional.default(nil)
       attribute :name, Types::Coercible::String.optional
       attribute :email, Types::Coercible::String.optional
       attribute :cpfCnpj, Types::Coercible::String.optional
@@ -11,6 +12,6 @@ module Asaas
       attribute :complement, Types::Coercible::String.optional
       attribute :province, Types::Coercible::String.optional
       attribute :postalCode, Types::Coercible::String.optional
-      attribute :apiKey, Types::Coercible::String.optional.default(nil)
+      attribute :apiKey, Types::Coercible::String.optional.default(nil) 
     end
   end
