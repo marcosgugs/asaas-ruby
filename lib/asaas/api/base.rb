@@ -105,6 +105,7 @@ module Asaas
       def response_success
         entity = nil
         hash = JSON.parse(@response.body)
+        puts hash if Asaas::Configuration.debug
         if hash.fetch("object", false) === "list"
           entity = Asaas::Entity::Meta.new(hash)
         else
