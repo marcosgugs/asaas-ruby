@@ -32,6 +32,10 @@ module Asaas
       @subscriptions ||= Asaas::Api::Subscription.new(@token, @api_version)
     end
 
+    def transfers
+      @transfers ||= Asaas::Api::Transfer.new(@token, @api_version)
+    end
+
     def webhooks
       @webhooks ||= Asaas::Api::Webhook.new(@token, @api_version)
     end
