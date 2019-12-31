@@ -81,7 +81,7 @@ module Asaas
         else
           "Asaas::#{type.capitalize}".constantize
         end
-      rescue
+      rescue StandardError => e
         Asaas::Entity::Base
       end
 
