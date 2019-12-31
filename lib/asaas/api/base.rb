@@ -22,37 +22,41 @@ module Asaas
       end
 
       def get(id)
-        request(:get, {id: id})
+        request(:get, parse_url(id), {id: id})
         parse_response
       end
 
       def list(params = {})
-        request(:get, params)
+        request(:get, parse_url, params)
         parse_response
       end
 
       def create(attrs)
-        request(:post, {}, attrs)
+        request(:post, parse_url, {}, attrs)
         parse_response
       end
 
       def update(attrs)
-        request(:post, {id: attrs.id}, attrs)
+        request(:post, parse_url(attrs.id), {id: attrs.id}, attrs)
         parse_response
       end
 
       def delete(id)
-        request(:delete, {id: id})
+        request(:delete, parse_url(id), {id: id})
         parse_response
       end
 
       protected
       def parse_url(id = nil)
-        u = URI(@endpoint + @route)
+        u = resource_uri
         if id
           u.path += "/#{id}"
         end
         u.to_s
+      end
+
+      def resource_uri
+        URI(@endpoint + @route)
       end
 
       def parse_response
@@ -85,12 +89,12 @@ module Asaas
         Asaas::Entity::Base
       end
 
-      def request(method, params = {}, body = nil)
+      def request(method, url, params = {}, body = nil)
         body = body.to_h
         body = body.delete_if { |k, v| v.nil? || v.to_s.empty? }
         body = body.to_json
         @response = Typhoeus::Request.new(
-            parse_url(params.fetch(:id, false)),
+            url,
             method: method,
             body: body,
             params: params,
