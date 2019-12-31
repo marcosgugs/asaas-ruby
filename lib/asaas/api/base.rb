@@ -14,7 +14,7 @@ module Asaas
         @route    = route
         @api_version = api_version || Asaas::Configuration.api_version
         @endpoint = Asaas::Configuration.get_endpoint(api_version)
-        puts @endpoint
+        puts @endpoint if Asaas::Configuration.debug
       end
 
       def extract_meta(meta)
@@ -81,7 +81,7 @@ module Asaas
         else
           "Asaas::#{type.capitalize}".constantize
         end
-      rescue
+      rescue StandardError => e
         Asaas::Entity::Base
       end
 
@@ -94,7 +94,7 @@ module Asaas
             method: method,
             body: body,
             params: params,
-            headers: { 
+            headers: {
               'access_token': @token || Asaas::Configuration.token,
               'Content-Type': 'application/json'
              },
