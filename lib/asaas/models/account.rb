@@ -12,6 +12,7 @@ module Asaas
       attribute :complement, Types::Coercible::String.optional
       attribute :province, Types::Coercible::String.optional
       attribute :postalCode, Types::Coercible::String.optional
-      attribute :apiKey, Types::Coercible::String.optional.default(nil) 
+      attribute :apiKey, Types::Coercible::String.optional.default(nil)
+      attribute :companyType, Types::Coercible::String.optional.default(nil) 
     end
   end

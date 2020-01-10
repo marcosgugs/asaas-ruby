@@ -40,5 +40,9 @@ module Asaas
       @webhooks ||= Asaas::Api::Webhook.new(@token, @api_version)
     end
 
+    def documents
+      @documents ||= Asaas::Api::Document.new(@token)
+    end
+
   end
 end
