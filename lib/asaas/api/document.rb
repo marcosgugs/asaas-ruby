@@ -15,7 +15,7 @@ module Asaas
 
         @response = Typhoeus.post(URI(endpoint + route).to_s,
                                   body: {
-                                    documentType: document_type
+                                    documentType: document_type,
                                     documentGroupType: group_type,
                                     documentFile: file
                                   },

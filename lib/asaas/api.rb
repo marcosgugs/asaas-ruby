@@ -9,5 +9,6 @@ module Asaas
     autoload :Subscription, 'asaas/api/subscription'
     autoload :Webhook, 'asaas/api/webhook'
     autoload :Transfer, 'asaas/api/transfer'
+    autoload :Document, 'asaas/api/document'
   end
 end
