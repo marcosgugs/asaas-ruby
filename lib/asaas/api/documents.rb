@@ -1,6 +1,6 @@
 module Asaas
   module Api
-    class Documents < Asaas::Api::Base
+    class Document < Asaas::Api::Base
 
       def initialize(token)
         super(token, 2, '/documents')
