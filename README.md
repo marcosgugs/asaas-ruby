@@ -21,8 +21,9 @@ gem build asaas-ruby.gemspec
 
 ### Changelog
 
+ - 0.2.19 - Small fixes
  - 0.2.18 - Account documents upload
- - 0.2.17 - 
+ - 0.2.17 -
  - 0.2.16 - Wallet account tranfers
  - 0.2.15 - Bank account tranfers
 

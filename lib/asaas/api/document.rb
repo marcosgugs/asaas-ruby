@@ -1,6 +1,6 @@
 module Asaas
   module Api
-    class Documents < Asaas::Api::Base
+    class Document < Asaas::Api::Base
 
       def initialize(token)
         super(token, 2, '/documents')
@@ -15,7 +15,7 @@ module Asaas
 
         @response = Typhoeus.post(URI(endpoint + route).to_s,
                                   body: {
-                                    documentType: document_type
+                                    documentType: document_type,
                                     documentGroupType: group_type,
                                     documentFile: file
                                   },
