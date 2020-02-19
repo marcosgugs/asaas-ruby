@@ -56,7 +56,7 @@ module Asaas
 
       def parse_response
         res =  @response.response_code
-        puts res
+        puts res if Asaas::Configuration.debug
         case @response.response_code
           when 200
             res = response_success
