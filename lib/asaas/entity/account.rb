@@ -23,7 +23,6 @@ module Asaas
       attribute :pushNotificationUrl, String
       attribute :pushNotificationEmail, String
       attribute :bankAccount, Asaas::Entity::BankAccount
-
     end
   end
 end
