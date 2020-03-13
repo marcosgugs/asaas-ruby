@@ -21,6 +21,8 @@ gem build asaas-ruby.gemspec
 
 ### Changelog
 
+ - 0.2.21 - Add credit fields to Payment
+ - 0.2.20 - 
  - 0.2.19 - Small fixes
  - 0.2.18 - Account documents upload
  - 0.2.17 -

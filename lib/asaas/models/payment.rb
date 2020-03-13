@@ -29,5 +29,8 @@ module Asaas
     attribute :bankSlipUrl, Types::Coercible::String.optional.default(nil)
     attribute :invoiceNumber, Types::Coercible::String.optional.default(nil)
     attribute :deleted, Types::Coercible::String.optional.default(nil)
+
+    attribute :creditDate, Types::Coercible::String.optional.default(nil)
+    attribute :estimatedCreditDate, Types::Coercible::String.optional.default(nil)
   end
 end
