@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "webmock", "~> 3.7.2"
 
 
-  spec.add_dependency "activesupport", "6.0.3.1"
+  spec.add_dependency "activesupport", "6.0.3.3"
   spec.add_dependency "virtus", '~> 1.0', "~> 1.0.5"
   spec.add_dependency "dry-types", '0.15.0'
   spec.add_dependency "dry-struct", '0.7.0'
