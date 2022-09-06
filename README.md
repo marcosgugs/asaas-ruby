@@ -21,11 +21,14 @@ gem build asaas-ruby.gemspec
 
 ### Changelog
 
+ - 0.2.24 - Add support to PIX billing type and fills missing CHANGELOG entries
+ - 0.2.23 - Add support to Ruby 2.7 and Rails 6.1
+ - 0.2.22 - Remove unecessary ActiveSupport version limit
  - 0.2.21 - Add credit fields to Payment
- - 0.2.20 - 
+ - 0.2.20 - Adds debug flag to check responses
  - 0.2.19 - Small fixes
  - 0.2.18 - Account documents upload
- - 0.2.17 -
+ - 0.2.17 - Add support to DEPOSIT billing type
  - 0.2.16 - Wallet account tranfers
  - 0.2.15 - Bank account tranfers
 
