@@ -41,7 +41,7 @@ module Asaas
     end
 
     def documents
-      @documents ||= Asaas::Api::Document.new(@token)
+      @documents ||= Asaas::Api::Document.new(@token, @api_version)
     end
 
   end
