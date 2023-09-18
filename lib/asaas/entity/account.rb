@@ -17,6 +17,7 @@ module Asaas
       attribute :country, String
       attribute :postalCode, String
       attribute :cpfCnpj, String
+      attribute :birthDate, String
       attribute :personType, String
       attribute :companyType, String
       attribute :apiKey, String
