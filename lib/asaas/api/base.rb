@@ -85,18 +85,12 @@ module Asaas
       end
 
       def request(method, params = {}, body = nil)
-        body = body.to_h
-        body = body.delete_if { |k, v| v.nil? || v.to_s.empty? }
-        body = body.to_json
         @response = Typhoeus::Request.new(
             parse_url(params.fetch(:id, false)),
             method: method,
-            body: body,
+            body: body_parser(body),
             params: params,
-            headers: {
-              'access_token': @token || Asaas::Configuration.token,
-              'Content-Type': 'application/json'
-             },
+            headers: request_headers,
             verbose: Asaas::Configuration.debug
         ).run
       end
@@ -152,6 +146,19 @@ module Asaas
 
       def get_headers
         { 'access_token': @token || Asaas::Configuration.token }
+      end
+
+      def body_parser(body)
+        return nil unless body
+
+        body.to_h.delete_if { |k, v| v.nil? || v.to_s.empty? }.to_json
+      end
+
+      def request_headers
+        {
+          'access_token': @token || Asaas::Configuration.token,
+          'Content-Type': 'application/json'
+        }
       end
     end
   end
