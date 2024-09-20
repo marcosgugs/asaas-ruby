@@ -2,8 +2,8 @@ module Asaas
   module Configuration
 
     ENDPOINT_PRODUCTION = {
-      v2: 'https://www.asaas.com/api/v2',
-      v3: 'https://www.asaas.com/api/v3',
+      v2: 'https://api.asaas.com/v2',
+      v3: 'https://api.asaas.com/v3',
     }
 
     ENDPOINT_HOMOLOG = {
