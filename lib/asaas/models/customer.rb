@@ -19,6 +19,6 @@ module Asaas
     attribute :municipalInscription, Types::Coercible::String.optional.default(nil)
     attribute :stateInscription, Types::Coercible::String.optional.default(nil)
     attribute :groupName, Types::Coercible::String.optional.default(nil)
-    attribute :deleted, Types::Coercible::Bool.optional.default(false)
+    attribute :deleted, Types::Bool.optional.default(false)
   end
 end
